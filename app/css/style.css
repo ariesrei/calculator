@@ -1,0 +1,30 @@
+* {
+	outline: 0;
+	padding: 0;
+	margin: 0;
+}
+
+body {
+	background-color: #444;
+}
+
+.container {
+	width: 400px;
+	margin: 50px auto;
+	border: 1px #ddd solid;
+	padding: 0px;
+}
+
+.template .field {
+	padding: 10px 0; 
+	width: 100%;
+	background-color: white;
+	float:left;
+	text-align: right;
+}
+
+.template button{
+	width:30%;
+	float: left;
+	margin-right:5px;
+}

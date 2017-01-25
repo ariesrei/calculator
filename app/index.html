@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+    
+<html ng-app="app">
+
+<head>
+<title>Test Calculator</title>
+
+<link rel="stylesheet" href="css/style.css" type="text/css"/>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.min.js"></script>
+
+<!--<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.0.4/css/bootstrap-combined.min.css">-->
+
+</head>
+
+<body ng-controller="PhoneListController">
+
+<div class="container">
+ 
+ 	<div class="template">
+ 		<span class="field"></span>
+ 		<button>1</button>
+ 		<button>2</button>
+ 		<button>3</button>
+ 		<button>4</button>
+ 		<button>5</button>
+ 		<button>6</button>
+ 		<button>7</button>
+ 		<button>8</button>
+ 		<button>9</button>
+ 		<button>0</button>
+ 	</div>
+
+ 	
+	<div test=""></div>
+	 
+ 	<div ng-repeat="phone in phones">
+ 	<span>{{ phone.name }}</span><br/>
+ 	<span>{{ phone.snippet}}</span>
+ 	</div>
+
+ </div>
+
+<script src="app.js" type="text/javascript" charset="utf-8"></script>
+</body>
+</html>

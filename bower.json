@@ -1,0 +1,11 @@
+{
+  "name": "calculator",
+  "description": "Calculator",
+  "version": "0.0.0",
+  "homepage": "https://github.com/ariesrei/calculator",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "angular": "1.5.x"
+  }
+}
