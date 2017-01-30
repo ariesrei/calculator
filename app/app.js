@@ -1,126 +1,89 @@
 'use strict';
 
+require([],'./model.js');
+require([],'./view.js');
 //require("./model.js");
-//require("./model.js");
-
-//import Model from './model.js';
-//require('./view.js');
-//require('./view-model.js');
-//require('./model.js');
-
-//import View from "./view.js";
-//import Model from "./model.js";
-
-//require("./view.js");
-//var View = require('view.js');
-
-alert("tests s");
 
 angular.module('app', [])
 
+//.view(View)
 
-.directive('test', function(){
+.directive('calculator', function(){
     return{
         restrict: 'A',
-        scope: {
-            //holiday: '='
-        }
-        //template : '<input type="text" value=""/>'
+        scope: {},
+        templateUrl : 'template.html'
     };
 })
 
-.controller('Ctrl',function($scope){
+.controller('calculatorCtrl',function($scope){
+
     $scope.output = "0";
+    $scope.newNumber = true; //false
 
-    $scope.newNumber = true;
+    $scope.x = null;
+    $scope.y = null;
+    $scope.operation = null;
+    $scope.result = null;
+    $scope.test = "0";
+    //$scope.result = String;
 
-    $scope.pendingOperation = null;
+    $scope.updateOutput = function (number) {
 
-    $scope.pendingValue = null;
-
-    $scope.pendingNewValue = null;
-
-    $scope.result = String;
-
-    $scope.clear = function(){
-       $scope.output = "0"; 
-    }
-
-
-
-    $scope.updateOutput = function (btn) {
         if ($scope.output == "0" || $scope.newNumber) {
-            $scope.output = btn;
+            $scope.output = number;
             $scope.newNumber = false;
-        } else {
-            $scope.output += String(btn);
+        } 
+        else {
+            $scope.output += String(number);
+            
         }
-        $scope.pendingValue = toNumber($scope.output);
+        $scope.y = $scope.output;
+        $scope.x = toNumber($scope.output);
+
     };
 
 
     $scope.add = function(){
-
-        $scope.pendingValue = $scope.output;
-
-        $scope.pendingOperation = "+";
-
-        $scope.output += String("+");
-
-        $scope.newNumber = true;
-
-        //$scope.result = String($scope.output);
-        //$scope.pendingValue = toNumber($scope.output);
-        //alert($scope.pendingValue);
-        //$scope.pendingValue = $scope.updateOutput();
+        $scope.x = $scope.output;
+        $scope.operation = "+";
+        $scope.y = null;
+        $scope.output = "0"
     }
 
-    $scope.minus = function(number){
-      if ($scope.output == "0" || $scope.newNumber) {
-
-      }
-      else{
-
-      }
-         $scope.output += String("-");
-       
-
+    $scope.subtract = function(){
+      $scope.x = $scope.output;
+      $scope.operation = "-";
+      $scope.y = null;
+      $scope.output = "0"
     } 
 
-
-      $scope.subtract = function () {
-        if ($scope.pendingValue) {
-            if ($scope.runningTotal && ($scope.pendingOperation == SUBTRACT)) {
-                $scope.runningTotal -= $scope.pendingValue;
-            } else if ($scope.runningTotal && $scope.pendingOperation == ADD) {
-                $scope.runningTotal += $scope.pendingValue;
-            } else {
-                $scope.runningTotal = $scope.pendingValue;
-            }
-        }
-        setOperationToken(SUBTRACT);
-        setOutput(String($scope.runningTotal));
-        $scope.pendingOperation = SUBTRACT;
-        $scope.newNumber = true;
-        $scope.pendingValue = null;
-    };
-    
-
     $scope.multiply = function(){
-        $scope.output += String("*");
-
+      $scope.x = $scope.output;
+      $scope.operation = "*";
+      $scope.y = null;
+      $scope.output = "0"
     } 
 
     $scope.divide = function(){
-       $scope.output += String("/");
+      $scope.x = $scope.output;
+      $scope.operation = "/";
+      $scope.y = null;
+      $scope.output = "0"
+    } 
+
+    $scope.calculate = function(first, operation, second) {
+      $scope.output = "0";
+      $scope.result = " = " + eval($scope.x + $scope.operation + $scope.y );
 
     } 
 
-    $scope.calculate = function() {
-        //$scope.result = $scope.output;
-        //$scope.result = {{ $scope.output }};
-        //$scope.output += $scope.output;
-        //alert($scope.pendingValue )
+    $scope.clear = function(){
+      $scope.output = "0"; 
+      $scope.operation = null;
+      $scope.x = null;
+      $scope.y = null;
+      $scope.result = null;
     }
 
 });

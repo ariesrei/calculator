@@ -11,12 +11,18 @@ body {
 .container {
 	width: 400px;
 	margin: 50px auto;
-	border: 1px #ddd solid;
+	border: 0px #ddd solid;
 	padding: 0px;
+
 }
 
 .template {
+	border-radius: 10px;
+	padding: 10px 0;
 	width: 100%;
+	float: left;
+	border: 1px #ddd solid;
+	background-color: #111111;
 }
 
 .template .field {
@@ -29,7 +35,9 @@ body {
 }
 
 .template button{
-	width:32%;
+
+	width:30.5%;
 	float: left;
-	margin-right:5px;
+	margin:5px;
+	font-size: 20px;
 }

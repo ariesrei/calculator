@@ -1,5 +1,8 @@
 'use strict';
 
+alert('found view');
+
+
 import template from "./template.html";
 
 export default
