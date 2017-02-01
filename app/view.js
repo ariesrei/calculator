@@ -3,14 +3,14 @@
 alert('found view');
 
 
-import template from "./template.html";
+// import template from "./template.html";
 
-export default
-	class View{
+// export default
+// 	class View{
 
-		constructor() {
-		super();
-		this.template = template;
+// 		constructor() {
+// 		super();
+// 		this.template = template;
 
-		}
-	}
+// 		}
+// 	}

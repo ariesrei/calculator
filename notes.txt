@@ -1,0 +1,93 @@
+
+angular.module("module_name", [ ]);
+
+sample:
+
+var csr = angular.modular("csr", [ ]);
+
+var support = angular.module("support" , ["csr"]); // has module dependencies "csr"
+
+csr.constant();
+csr.filter();
+csr.value();
+csr.directive();
+csr.controller();
+csr.service();
+csr.factory();
+csr.provider();
+
+Bootstraping
+<html ng-app="module_name">  
+	=> csr.bootstrap(document.documentElement);
+
+
+csr.config( function());  // before bootstrap ( provider only )
+csr.run(function()); // after bootstrap
+
+csr.config(['$httpProvider', function(http) {
+//
+}]);
+
+csr.run(['$http', function(http) {
+//
+}]);
+
+csr.constant() // cannot be change
+csr.value() // can be change
+
+csr.serice('a8Test', function() {
+	return object;
+});
+
+csr.factory('a8Test', function(){
+	
+}); // return class
+
+
+annotate / annotation
+---------------------------------------------------------------
+csr.service('a8Test', function ($http) {
+	return object;
+}); // first form
+
+----------------------------------------------------------------
+csr.service('a8Test', ['$http', function(net) {
+	return object;
+}]); // second form
+
+-----------------------------------------------------------------
+function a8Test(net) {
+	return object;
+}
+a8Test.$inject = ["$http"];
+
+csr.service("a8Test", a8Test);
+// third form
+----------------------------------------------------------------
+
+
+Lean Controller
+MVVM pattern
+
+.controller('a8Test', funtion (service) {
+	var vm = this;
+	vm.x = 10;
+	vm.y = 12;
+});
+
+<div ng-controller="a8Test as myTest">
+	{{  myTest.x   }}
+</div>
+
+
+.directive("directiveName", function(service){
+	return {
+	
+	restrict : 'ECA' // Element, Class, Attribute
+
+	}
+
+});
+
+
+csr.service('a8Test',)

@@ -1,8 +1,7 @@
 'use strict';
 
-require([],'./model.js');
-require([],'./view.js');
-//require("./model.js");
+require(['config'],'./model.js');
+require(['config'],'./view.js');
 
 angular.module('app', [])
 

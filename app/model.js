@@ -3,12 +3,12 @@
 alert('found model');
 
 
-export default
-	class Ctrl{
+// export default
+// 	class Ctrl{
 
-		constructor() {
+// 		constructor() {
 
 
 
-		}
-	}
+// 		}
+// 	}
