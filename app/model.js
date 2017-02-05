@@ -1,14 +1,14 @@
 'use strict';
 
-alert('found model');
+alert('found model model');
+
+require('./app.js');
+
+class Model {
+
+	constructor(){
+
+	}
 
 
-// export default
-// 	class Ctrl{
-
-// 		constructor() {
-
-
-
-// 		}
-// 	}
+}

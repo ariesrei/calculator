@@ -1,114 +1,94 @@
 'use strict';
 
-require(['config'],'./model.js');
-require(['config'],'./view.js');
+var app = angular.module('app', []);
 
-angular.module('app', [])
 
-//.view(View)
-
-.directive('calculator', function(){
+app.directive('calculator', function(){
     return{
         restrict: 'A',
         scope: {},
-        templateUrl : 'template.html'
+        templateUrl: 'template.html',
+        controller: 'calculatorCtrl',
+        controllerAs: 'Ctrl'
     };
-})
+});
 
-.controller('calculatorCtrl',function($scope){
 
-    $scope.output = "0";
-    $scope.newNumber = true; //false
+app.controller('calculatorCtrl', function(){
 
-    $scope.x = null;
-    $scope.y = null;
-    $scope.operation = null;
-    $scope.result = null;
-    $scope.test = "0";
-    //$scope.result = String;
+    var vm = this;
 
-    $scope.updateOutput = function (number) {
+    vm.output = "0";
+    vm.newNumber = true; //false
 
-        if ($scope.output == "0" || $scope.newNumber) {
-            $scope.output = number;
-            $scope.newNumber = false;
+    vm.x = null;
+    vm.y = null;
+    vm.operation = null;
+    vm.result = null;
+
+    vm.updateOutput = updateOutput;
+    vm.add = add;
+    vm.subtract = subtract;
+    vm.multiply = multiply;
+    vm.divide = divide;
+    vm.calculate = calculate;
+    vm.clear = clear;
+
+    function updateOutput(number){
+       //alert('Clicked ' + number);
+       if (vm.output == "0" || vm.newNumber) {
+            vm.output = number;
+            vm.newNumber = false;
         } 
         else {
-            $scope.output += String(number);
+            vm.output += String(number);
             
         }
-        $scope.y = $scope.output;
-        $scope.x = toNumber($scope.output);
-
-    };
-
-
-    $scope.add = function(){
-        $scope.x = $scope.output;
-        $scope.operation = "+";
-        $scope.y = null;
-        $scope.output = "0"
+        vm.y = vm.output;
+        vm.x = toNumber(vm.output);
     }
 
-    $scope.subtract = function(){
-      $scope.x = $scope.output;
-      $scope.operation = "-";
-      $scope.y = null;
-      $scope.output = "0"
+
+    function add(){
+      vm.x = vm.output;
+      vm.operation = "+";
+      vm.y = null;
+      vm.output = "0"
+    }
+
+    function subtract(){
+      vm.x = vm.output;
+      vm.operation = "-";
+      vm.y = null;
+      vm.output = "0"
     } 
 
-    $scope.multiply = function(){
-      $scope.x = $scope.output;
-      $scope.operation = "*";
-      $scope.y = null;
-      $scope.output = "0"
+    function multiply(){
+      vm.x = vm.output;
+      vm.operation = "*";
+      vm.y = null;
+      vm.output = "0"
     } 
 
-    $scope.divide = function(){
-      $scope.x = $scope.output;
-      $scope.operation = "/";
-      $scope.y = null;
-      $scope.output = "0"
+    function divide(){
+      vm.x = vm.output;
+      vm.operation = "/";
+      vm.y = null;
+      vm.output = "0"
     } 
 
-    $scope.calculate = function(first, operation, second) {
-      $scope.output = "0";
-      $scope.result = " = " + eval($scope.x + $scope.operation + $scope.y );
+    function calculate(first, operation, second) {
+      vm.output = "0";
+      vm.result = " = " + eval(vm.x + vm.operation + vm.y );
 
     } 
 
-    $scope.clear = function(){
-      $scope.output = "0"; 
-      $scope.operation = null;
-      $scope.x = null;
-      $scope.y = null;
-      $scope.result = null;
+    function clear(){
+      vm.output = "0"; 
+      vm.operation = null;
+      vm.x = null;
+      vm.y = null;
+      vm.result = null;
     }
 
 });
-
-  		//window("list", listWindowConfig).
-        //viewModel("list", listViewModel).
-        //model("list", listModel).
-        //view(View);
-
- 
-// .controller('PhoneListController', function PhoneListController($scope) {
-//   $scope.phones = [
-//     {
-//       name: 'Nexus S',
-//       snippet: 'Fast just got faster with Nexus S.'
-//     }, {
-//       name: 'Motorola XOOM™ with Wi-Fi',
-//       snippet: 'The Next, Next Generation tablet.'
-//     }, {
-//       name: 'MOTOROLA XOOM™',
-//       snippet: 'The Next, Next Generation tablet.'
-//     }
-//   ];
-// });
-
-
-// .controller('helloCtrl',function($scope){
-//     $scope.hello = "Hello there!";
-// });

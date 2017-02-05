@@ -1,16 +1,16 @@
 'use strict';
 
-alert('found view');
+alert('found view!');
 
+// angular.module('app', [])
 
-// import template from "./template.html";
+// .directive('calculator', function(){
+//     return{
+//         restrict: 'A',
+//         scope: {},
+//         templateUrl : 'template.html',
+//         controller: 'controllerCtrl',
+//         controllerAs: 'Ctrl'
+//     };
+// });
 
-// export default
-// 	class View{
-
-// 		constructor() {
-// 		super();
-// 		this.template = template;
-
-// 		}
-// 	}

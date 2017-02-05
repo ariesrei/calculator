@@ -1,33 +1,32 @@
 
-<div class="template" ng-controller="calculatorCtrl">
-<span class="field" style="line-height: 30px; height: 30px"> {{ x }} {{ operation}} {{ y }} {{ result }}</span>
+<div class="template">
+<span class="field" style="line-height: 30px; height: 30px"> {{ Ctrl.x }} {{ Ctrl.operation}} {{ Ctrl.y }} {{ Ctrl.result }}</span>
 
-<button ng-click='updateOutput(1)'>1</button>
-<button ng-click='updateOutput(2)'>2</button>
-<button ng-click='updateOutput(3)'>3</button>
-<button ng-click='updateOutput(4)'>4</button>
-<button ng-click='updateOutput(5)'>5</button>
-<button ng-click='updateOutput(6)'>6</button>
-<button ng-click='updateOutput(7)'>7</button>
-<button ng-click='updateOutput(8)'>8</button>
-<button ng-click='updateOutput(9)'>9</button>
-<button ng-click='updateOutput(0)'>0</button>
-<button ng-click='add()'>+</button>
-<button ng-click='subtract()'>-</button>
-<button ng-click='divide()'>/</button>
-<button ng-click='multiply()'>x</button>
-<button ng-click='clear()'>Clear</button>
-<button ng-click="calculate()">Calculate</button>
+<button ng-click='Ctrl.updateOutput(1)'>1</button>
+<button ng-click='Ctrl.updateOutput(2)'>2</button>
+<button ng-click='Ctrl.updateOutput(3)'>3</button>
+<button ng-click='Ctrl.updateOutput(4)'>4</button>
+<button ng-click='Ctrl.updateOutput(5)'>5</button>
+<button ng-click='Ctrl.updateOutput(6)'>6</button>
+<button ng-click='Ctrl.updateOutput(7)'>7</button>
+<button ng-click='Ctrl.updateOutput(8)'>8</button>
+<button ng-click='Ctrl.updateOutput(9)'>9</button>
+<button ng-click='Ctrl.updateOutput(0)'>0</button>
+<button ng-click='Ctrl.add()'>+</button>
+<button ng-click='Ctrl.subtract()'>-</button>
+<button ng-click='Ctrl.divide()'>/</button>
+<button ng-click='Ctrl.multiply()'>x</button>
+<button ng-click='Ctrl.clear()'>Clear</button>
+<button ng-click="Ctrl.calculate()">Calculate</button>
 <br/>
 <br/>
 
 <!-- <div style="float:left; width: 100%;">
 
-First Value : {{ x }}<br/>
-Operation: {{ operation }}<br/>
-Second Value: {{ y }}<br/>
-Result: {{ result }}
- 
+First Value : {{ Ctrl.x }}<br/>
+Operation: {{ Ctrl.operation }}<br/>
+Second Value: {{ Ctrl.y }}<br/>
+Result: {{ Ctrl.result }} 
 </div>  -->
 
 </div>
